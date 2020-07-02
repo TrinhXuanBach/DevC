@@ -1,0 +1,47 @@
+<div id="message" style="text-align: center; font-size: 50px; font-weight: bold"> NUMBER GUESSING GAME</div>
+<div style="text-align: center">
+    <input type="number" id="number" style="text-align: center;">
+    <button id= "submit" style="background-color: blueviolet; color: white">SUBMIT</button>
+    <button id= "retry"  style="visibility: hidden;">RETRY</button>
+</div>
+<div style="text-align: center">
+    <p id= "result"></p>
+</div>
+<script>
+    let submit =  document.getElementById("submit");
+    let count  = 5;
+    let number = Math.floor(Math.random()*10);
+    console.log(number);
+    document.getElementById("result").innerHTML = "YOU HAVE 5 TIMES TO GUESS";
+    submit.addEventListener('click', function() {
+        let userGuess = Number(document.getElementById("number").value);
+        count--;
+        if(count === 0 && userGuess !== number){
+            document.getElementById("submit").style.visibility = "hidden";
+            document.getElementById("retry").style.visibility = "visible";
+            document.getElementById("result").innerHTML = `YOU LOSE. NUMBER IS ${number}`;
+        }       
+        if(userGuess === number){
+            document.getElementById("submit").style.visibility = "hidden";
+            document.getElementById("retry").style.visibility = "visible";
+            document.getElementById("result").innerHTML = `YAY! YOU ARE THE LORD OF THE GUESSES`;
+            document.getElementById("result").style.color = "blue";
+        }else if(userGuess < number && count > 0){
+            document.getElementById("result").innerHTML = `Your guess was too low, guess lower.You have ${count} times`;
+            document.getElementById("result").style.color = "red";
+        }else if(userGuess > number && count > 0){
+            document.getElementById("result").innerHTML = `Your guess was too high, guess higher.You have ${count} times`;
+            document.getElementById("result").style.color = "red";
+        }
+       
+    });
+    let retry = document.getElementById("retry")
+    retry.addEventListener('click', function(){
+        number = Math.floor(Math.random()*10);
+        document.getElementById("submit").style.visibility = "visible";
+        document.getElementById("retry").style.visibility = "hidden";
+        count = 5;
+        document.getElementById("result").innerHTML = "YOU HAVE 5 TIMES TO GUESS";
+        document.getElementById("number").value = "";
+    })
+</script>
