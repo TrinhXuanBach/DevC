@@ -65,7 +65,7 @@ export default function App() {
 
   const getNews = useCallback(async () => {
     if (lastPageReached) return;
-    //setLoading(true);
+    setLoading(true);
     try{
     const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=abcaea57d4554c0fbc5f903521646862&page=${pageNumber}`)
     const jsonData = await response.json()
@@ -87,13 +87,13 @@ export default function App() {
 }, [articles])
 
 
-  if(loading){
-    return(
-      <SafeAreaView style = {styles.container}>
-        <ActivityIndicator size = "large" loading = {loading}/>
-      </SafeAreaView>
-    )
-  }
+  // if(loading){
+  //   return(
+  //     <SafeAreaView style = {styles.container}>
+  //       <ActivityIndicator size = "large" loading = {loading}/>
+  //     </SafeAreaView>
+  //   )
+  // }
   return(
     <SafeAreaView style = {styles.container}>
       <View style={styles.row}>
