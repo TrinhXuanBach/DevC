@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Lab6",
+    "slug": "Lab6",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.example.la6",
+      "buildNumber": "1.0.0",
+      "config": {
+        "googleMapsApiKey": "AIzaSyC2KQ6OvAWjn2Do04eEJf3cr8a0JVcsi8A"
+      }
+    },
+    "android": {
+      "package": "com.example.la6",
+      "versionCode": 1,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyATeJe8RUrb4NAGfyZuGIbRx4dNnGE3C9Q"
+        }
+      }
+    },
+
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
